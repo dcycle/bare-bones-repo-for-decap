@@ -1,0 +1,32 @@
+locale: 'en'
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+backend:
+  name: github
+  repo: dcycle/bare-bones-repo-for-decap
+  branch: master
+  base_url: https://auth.static.dcycle.com
+  # base_url: https://staticauthtest20241214.dcycleproject.org
+  auth_endpoint: auth/github/alberto56
+media_folder: 'docs/media'
+public_folder: "/media"
+collections:
+  - name: 'pages'
+    create: true
+    label: 'Posts'
+    label_singular: "Post"
+    folder: 'docs/pages'
+    path: "{{slug}}/index"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Content
+        name: body
+        widget: markdown
+        required: false
+      - name: layout
+        widget: hidden
+        default: 'page'
